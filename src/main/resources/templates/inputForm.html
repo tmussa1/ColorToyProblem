@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<form th:action="@{/savecolor}" class="form-control" th:object="${color}" method="post">
+    <input type="hidden" th:field="*{id}">
+    <input type="text" th:field="*{colorName}">
+    <select th:field="*{persons}" multiple>
+        <option th:each="person: ${personList}" th:value="${person.id}" th:text="${person.personName}"></option>
+    </select>
+    <button type="submit">Click to Submit</button>
+</form>
+</body>
+</html>
